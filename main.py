@@ -1,6 +1,11 @@
 
 import lidario as lio
 
+# TODO:
+# Translator return multiple data structure
+# Object to retrieve only metadata
+# Increase raster resolution
+
 
 if __name__ == '__main__':
 
