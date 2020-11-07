@@ -1,6 +1,6 @@
 # Lidario
 
-[![Generic badge](https://img.shields.io/badge/python-2.7%20%7C%203.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue)](https://www.python.org/downloads/release/python-380/)
+[![Generic badge](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue)](https://www.python.org/downloads/release/python-380/)
 
 High-level python utilities to manipulate LIDAR raster and point cloud.
 
