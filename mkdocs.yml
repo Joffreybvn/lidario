@@ -1,1 +1,5 @@
+
 site_name: Lidario
+
+theme:
+  name: 'rtd-dropdown'

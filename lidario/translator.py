@@ -38,14 +38,15 @@ class Translator:
         self.affine_transform = affine_transform
         self.return_metadata = metadata
 
-    def translate(self, input_raster, out_file="output.csv", band=1, decimal=None, transpose=False):
+    def translate(self, input_values, out_file="output.csv", no_data=None, decimal=None, transpose=False, band=1):
         """
         Translate supported raster into a X, Y, Z point cloud.
 
-        :param input_raster: Raster to translate.
+        :param input_values: Raster to translate.
         :param out_file: Name of the CSV file to save the point cloud.
             Provide only if the Translator's "output_type" is "csv".
             Default: "output.csv".
+        :param no_data:
         :param band: Band of the raster to translate. Provide only if the
             Translator's "input_type" is "tif". Default: 1.
         :param decimal: If provided, round the coordinate numbers to the
@@ -56,10 +57,13 @@ class Translator:
         """
 
         # Load the raster and metadata
-        raster, metadata = self.input_handler.load(input_raster, band)
+        raster, metadata = self.input_handler.load(input_values, band)
+
+        if no_data is None:
+            no_data = metadata['nodata']
 
         # Create a (x, y, z) point cloud from raster data
-        x, y, z = self.__create_xyz_points(raster, metadata['nodata'])
+        x, y, z = self.__create_xyz_points(raster, no_data)
 
         # Geo-transform the coordinates
         if self.affine_transform:
