@@ -10,7 +10,7 @@ Welcome to Lidario's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   source/lidario
+   source/translator
 
 Indices and tables
 ==================
