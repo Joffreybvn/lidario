@@ -4,31 +4,31 @@ from lidario.io import InputHandler, OutputHandler
 
 
 class Translator:
+    """
+    Create a Translator which will handle the translation between
+    different input and output types.
+
+    :param input_type: Type of raster provided. Can be:
+        - Geotiff: "tif", "tiff", "geotiff"
+    :param output_type: Type of point cloud to return. Can be:
+        - CSV file: "csv"
+        - Numpy array: "numpy", "np", "array"
+        - Pandas dataframe: "pandas", "dataframe", "pd", "df"
+        - Python dictionary: "dict", "dictionary"
+        - Python list: "list"
+        - Python tuple: "tuple"
+    :param affine_transform: If set to True, apply an affine
+        geo-transformation to the translated coordinates. Default: True.
+    :param metadata: If set to True, the "translate" function will return
+        the metadata of the translated raster with the point cloud.
+        Default: False.
+
+    :type input_type: str
+    :type output_type: str
+    :type affine_transform: bool
+    """
 
     def __init__(self, input_type, output_type, affine_transform=True, metadata=False):
-        """
-        Create a Translator which will handle the translation between
-        different input and output types.
-
-        :param input_type: Type of raster provided. Can be:
-            - Geotiff: "tif", "tiff", "geotiff"
-        :param output_type: Type of point cloud to return. Can be:
-            - CSV file: "csv"
-            - Numpy array: "numpy", "np", "array"
-            - Pandas dataframe: "pandas", "dataframe", "pd", "df"
-            - Python dictionary: "dict", "dictionary"
-            - Python list: "list"
-            - Python tuple: "tuple"
-        :param affine_transform: If set to True, apply an affine
-            geo-transformation to the translated coordinates. Default: True.
-        :param metadata: If set to True, the "translate" function will return
-            the metadata of the translated raster with the point cloud.
-            Default: False.
-
-        :type input_type: str
-        :type output_type: str
-        :type affine_transform: bool
-        """
 
         # Handle the input and output files/objects
         self.input_handler = InputHandler(input_type)
