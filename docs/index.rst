@@ -17,10 +17,12 @@ Lidario is, a high-level python toolbox to manipulate LIDAR raster and point clo
     :maxdepth: 2
     :caption: Tutorial
 
+    source/tutorials/metadata
     source/tutorials/translator
 
 .. toctree::
     :maxdepth: 2
     :caption: Python API
 
+    source/api/metadata
     source/api/translator

@@ -84,7 +84,7 @@ class Translator:
         """
 
         # Load the raster and metadata
-        raster, metadata = self.input_handler.load(input_values, band)
+        raster, metadata = self.input_handler.load(True, input_values, band)
 
         if no_data is None:
             no_data = metadata['nodata']

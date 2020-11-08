@@ -6,7 +6,7 @@ Convert a raster (.tif) or a rasterio.mask_ into a point cloud (x, y, z). See th
 
 .. currentmodule:: lidario.translator
 
-.. don't include inherited members to keep the doc short
+.. Don't include inherited members to keep the doc short
 .. autoclass:: lidario.Translator
     :members:
 
