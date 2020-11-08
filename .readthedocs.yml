@@ -16,6 +16,8 @@ sphinx:
 # Optionally build your docs in additional formats such as PDF and ePub
 formats: all
 
+# ReadTheDocs.io need to install lidario package to be able
+# to build the documentation automatically.
 python:
   install:
     - requirements: requirements.txt

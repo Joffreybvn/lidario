@@ -29,7 +29,8 @@ author = 'Joffrey Bienvenu'
 # ones.
 extensions = [
     'recommonmark',
-    'sphinx.ext.autodoc'
+    'sphinx.ext.autodoc',
+    'sphinx.ext.viewcode'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

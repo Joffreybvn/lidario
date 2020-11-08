@@ -1,4 +1,3 @@
 pandas
 numpy
 rasterio
-lidario==0.1.2
