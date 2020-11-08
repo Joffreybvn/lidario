@@ -5,27 +5,34 @@ from lidario.io import InputHandler, OutputHandler
 
 class Translator:
     """
-    Create a Translator which will handle the translation between
-    different input and output types.
+    Instantiate a Translator object which will handle the translation between
+    given input and desired output type.
 
-    :param input_type: Type of raster provided. Can be:
-        - Geotiff: "tif", "tiff", "geotiff"
-    :param output_type: Type of point cloud to return. Can be:
-        - CSV file: "csv"
-        - Numpy array: "numpy", "np", "array"
-        - Pandas dataframe: "pandas", "dataframe", "pd", "df"
-        - Python dictionary: "dict", "dictionary"
-        - Python list: "list"
-        - Python tuple: "tuple"
-    :param affine_transform: If set to True, apply an affine
-        geo-transformation to the translated coordinates. Default: True.
-    :param metadata: If set to True, the "translate" function will return
-        the metadata of the translated raster with the point cloud.
-        Default: False.
+    :param input_type: Type of raster data provided: "**geotiff**" or "**mask**".
+
+        - "geotiff": a .tif raster file.
+        - "mask", a *rasterio.mask.mask()* result.
+
+    :param output_type: Type of point cloud data to return: "**csv**",
+        "**numpy**", "**pandas**", "**dictionary**", "**list**", "**tuple**".
+
+        - "csv": a CSV file.
+        - "numpy": a Numpy array. Alternatives: "np", "array".
+        - "dataframe": A Pandas dataframe: Alternatives: "pandas", "pd", "df".
+        - "dictionary": A pure Python dictionary: Alternative: "dict".
+        - "list" a pure Python list.
+        - "tuple": a pure Python tuple.
+
+    :param affine_transform: If True (default), apply an affine
+        geo-transformation to the translated coordinates.
+    :param metadata: If True, the "translate" method will return a tuple
+        with the point cloud and the metadata. If False (default), it will
+        only return the point cloud.
 
     :type input_type: str
     :type output_type: str
-    :type affine_transform: bool
+    :type affine_transform: bool, optional
+    :type metadata: bool, optional
     """
 
     def __init__(self, input_type, output_type, affine_transform=True, metadata=False):
@@ -40,20 +47,40 @@ class Translator:
 
     def translate(self, input_values, out_file="output.csv", no_data=None, decimal=None, transpose=False, band=1):
         """
-        Translate supported raster into a X, Y, Z point cloud.
+        Translate a given "input_values" into a X, Y, Z point cloud.
 
-        :param input_values: Raster to translate.
-        :param out_file: Name of the CSV file to save the point cloud.
-            Provide only if the Translator's "output_type" is "csv".
-            Default: "output.csv".
-        :param no_data:
-        :param band: Band of the raster to translate. Provide only if the
-            Translator's "input_type" is "tif". Default: 1.
-        :param decimal: If provided, round the coordinate numbers to the
-            given decimal. Default: None.
-        :param transpose: Transpose the coordinates. Default: False.
+        :param input_values: Data values to translate. Depend on the
+            Translator's "input_type" parameter:
 
-        :return:
+            - For a "**geotiff**": Takes the path to your .tif file (string).
+            - For a "**mask**": Takes the np.array returned by a rasterio.mask.mask() method.
+
+        :param out_file: Pathname of the CSV file to save the point cloud.
+            Used only if the Translator's "output_type" is "csv". Optional,
+            default: "output.csv".
+
+        :param no_data: Value to exclude from the translation.
+
+            - For a "**geotiff**": By default, use the nodata value stored in the tif file. If this value is missing, use -9999.
+            - For a "**mask**": By default, use -9999.
+
+        :param band: Band of the raster to translate. Used only if Translator's
+            "input_values" is "geotiff". Default: 1.
+        :param decimal: Round the coordinate numbers to the given decimal.
+            Default: None.
+        :param transpose: If True, transpose the coordinates. Default: False.
+
+        :type input_values: str or np.array
+        :type out_file: str, optional
+        :type no_data: int, optional
+        :type decimal: int, optional
+        :type transpose: bool, optional
+        :type band: bool, optional
+
+        :return: The translated point cloud, typed as specified. If
+            Translator's "output_type" is set to "csv", return None instead
+            and save the CSV file. If Translator's "metadata" is set to True,
+            return a tuple with the point cloud and the metadata.
         """
 
         # Load the raster and metadata

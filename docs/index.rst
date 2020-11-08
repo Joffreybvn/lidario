@@ -1,20 +1,26 @@
-.. Lidario documentation master file, created by
-   sphinx-quickstart on Sun Nov  8 13:52:22 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-Welcome to Lidario's documentation!
-===================================
+=====================================================
+Lidario: High-level library for LIDAR data processing
+=====================================================
+
+Lidario is, a high-level python toolbox to manipulate LIDAR raster and point cloud.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+    :maxdepth: 1
+    :caption: Getting Started
 
-   source/translator
+    source/started/install
+    source/started/quickstart
+    source/started/about
 
-Indices and tables
-==================
+.. toctree::
+    :maxdepth: 2
+    :caption: Tutorial
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+    source/tutorials/translator
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Python API
+
+    source/api/translator
