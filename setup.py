@@ -16,11 +16,11 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 # This call to setup() does all the work
 setup(
     name="lidario",
-    version="0.1.2",
-    description="High-level toolbox to manipulate LIDAR raster and point cloud",
+    version="0.1.3",
+    description="High-level python library to manipulate LIDAR raster and point cloud",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/joffreybvn/lidario",
+    url="https://lidario.readthedocs.io/",
     author="Joffrey Bienvenu",
     author_email="joffreybvn@gmail.com",
     license="MIT",

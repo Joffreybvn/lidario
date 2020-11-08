@@ -47,6 +47,10 @@ class InputHandler:
         raster = reader.read(band)
         metadata = reader.meta
 
+        # Set -9999 as default if nodata is None
+        if metadata['nodata'] is None:
+            metadata['nodata'] = -9999
+
         return raster, metadata
 
     @staticmethod
