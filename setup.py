@@ -38,7 +38,7 @@ setup(
         "Topic :: Scientific/Engineering :: GIS",
         "Topic :: Utilities"
     ],
-    packages=["lidario"],
+    packages=["lidario", "lidario.io"],
     include_package_data=True,
     install_requires=["pandas", "numpy", "rasterio"]
 )
