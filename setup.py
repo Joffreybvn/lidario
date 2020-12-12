@@ -16,7 +16,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 # This call to setup() does all the work
 setup(
     name="lidario",
-    version="0.2.1",
+    version="0.3.0",
     description="High-level python library to manipulate LIDAR raster and point cloud",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -25,7 +25,9 @@ setup(
     author_email="joffreybvn@gmail.com",
     license="MIT",
     classifiers=[
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
+        "Intended Audience :: Education",
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
@@ -36,9 +38,10 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
         "Topic :: Scientific/Engineering :: GIS",
+        "Topic :: Scientific/Engineering :: Image Processing"
         "Topic :: Utilities"
     ],
     packages=["lidario", "lidario.io"],
     include_package_data=True,
-    install_requires=["pandas", "numpy", "rasterio"]
+    install_requires=["pandas", "numpy", "rasterio", "plyfile", "pytz"]
 )

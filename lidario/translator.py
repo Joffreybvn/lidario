@@ -17,6 +17,7 @@ class Translator:
         "**numpy**", "**pandas**", "**dictionary**", "**list**", "**tuple**".
 
         - "csv": a CSV file.
+        - "ply": a .ply file.
         - "numpy": a Numpy array. Alternatives: "np", "array".
         - "dataframe": A Pandas dataframe: Alternatives: "pandas", "pd", "df".
         - "dictionary": A pure Python dictionary: Alternative: "dict".
@@ -45,7 +46,8 @@ class Translator:
         self.affine_transform = affine_transform
         self.return_metadata = metadata
 
-    def translate(self, input_values, out_file="output.csv", no_data=None, decimal=None, transpose=False, band=1):
+    def translate(self, input_values, out_file="output1.csv", out_format="binary",
+                  no_data=None, decimal=None, transpose=False, band=1):
         """
         Translate a given "input_values" into a X, Y, Z point cloud.
 
@@ -55,9 +57,13 @@ class Translator:
             - For a "**geotiff**": Takes the path to your .tif file (string).
             - For a "**mask**": Takes the np.array returned by a rasterio.mask.mask() method.
 
-        :param out_file: Pathname of the CSV file to save the point cloud.
-            Used only if the Translator's "output_type" is "csv". Optional,
-            default: "output.csv".
+        :param out_file: Name of the file to save the point cloud.
+            Used only if the Translator's "output_type" is a file type: "csv", "ply".
+            Optional, default: "output.csv".
+
+        :param out_format: Data format to save the file: "**binary**" (default)
+            or "**ascii**" (not recommended, may be slow). Used only when "ply"
+            is specified as "output_type". Optional.
 
         :param no_data: Value to exclude from the translation.
 
@@ -72,6 +78,7 @@ class Translator:
 
         :type input_values: str or np.array
         :type out_file: str, optional
+        :param out_format: str, optional
         :type no_data: int, optional
         :type decimal: int, optional
         :type transpose: bool, optional
@@ -101,9 +108,9 @@ class Translator:
             x, y, z = self.__round(x, y, z, decimal)
 
         # Save the point cloud
-        point_cloud = self.output_handler.save(x, y, z, out_file, transpose)
+        point_cloud = self.output_handler.save(x, y, z, out_file, out_format, transpose)
 
-        # If "self.return_metadata" is True, return the metadata
+        # If self.return_metadata is True, return the metadata
         if self.return_metadata:
             return point_cloud, metadata
 

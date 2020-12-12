@@ -12,6 +12,8 @@ Install and update using pip:
 pip install lidario
 ```
 
+Lidario depends on Rasterio, which depend on many other Python and C libraries. In case of problem, please refer to the [Rasterio installation instructions](https://rasterio.readthedocs.io/en/latest/installation.html).
+
 ### Quick start
 
 **lidario.Translator** transform a given data structure (ie: *a raster*), to a point cloud (ie: *a numpy array*).
@@ -30,9 +32,12 @@ In this example, we initialize a **Translator** object to convert a *geotiff* fi
 Then, we use this object to effectively convert a *tif* file.
 
 ### Going further
+Transform Rasterio mask and GeoTiff files into numpy array, pandas dataframe, CSV, PLY, and many other format:
+
 Read the [documentation on ReadTheDocs.io](https://lidario.readthedocs.io/).
 
 ## About the author
 **Joffrey Bienvenu**, Machine Learning student @ [Becode](https://becode.org/).
  - Website: https://joffreybvn.be
+ - Twitter: [@joffreybvn](https://twitter.com/Joffreybvn)  
  - Github: https://github.com/Joffreybvn 

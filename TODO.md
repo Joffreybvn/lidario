@@ -14,5 +14,6 @@
 ### Done ✓
 
 - [x] **lidario.Translator**: .tiff/mask to csv/np/df/dict/list/tuple
+- [x] **lidario.Translator**: .tiff/mask to ply
 - [x] **lidario.Translator**: Return metadata if asked
 - [x] **lidario.MetadataReader**: Return metadata from a tiff/mask

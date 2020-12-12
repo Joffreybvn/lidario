@@ -65,6 +65,26 @@ Transform a raster (**.tif**) file into a CSV without applying the affine geo-tr
 
 In this case, the point_cloud is None, because we save the values to a CSV file.
 
+Translate to PLY file
+---------------------
+
+Transform a raster (**.tif**) file into a PLY (.ply) file.
+
+.. code-block:: python
+
+    import lidario as lio
+
+    # Instantiate a Translator object which take a tif file
+    # and the point cloud to a PLY file.
+    translator = lio.Translator("geotiff", "ply")
+
+    # Translate the tif to a binary .ply file
+    translator.translate("/path/to/file.tif", out_format="binary")
+
+    # Translate the tif to a text .ply file (may be slow !)
+    translator.translate("/path/to/file.tif", out_format="ascii")
+
+
 
 
 .. _lidario.Translator: ../api/translator.html
