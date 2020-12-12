@@ -13,7 +13,7 @@ HERE = path.abspath(path.dirname(__file__))
 with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-# This call to setup() does all the work
+# This call to setup() does all the work.
 setup(
     name="lidario",
     version="0.3.0",
