@@ -38,7 +38,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
         "Topic :: Scientific/Engineering :: GIS",
-        "Topic :: Scientific/Engineering :: Image Processing"
+        "Topic :: Scientific/Engineering :: Image Processing",
         "Topic :: Utilities"
     ],
     packages=["lidario", "lidario.io"],
